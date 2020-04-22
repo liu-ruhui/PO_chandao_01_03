@@ -27,14 +27,6 @@ class BasePage(object):
         value = self.driver.title
         logger.info('获取网页标题，标题是%s'%value)
         return value
-    def close(self):
-        value = self.driver.close()
-        logger.info('退出界面')
-        return value
-    def quite(self):
-        value = self.driver.quite()
-        logger.info('关闭浏览器')
-        return value
 
     #元素操作封装
     #element_info = {'element_name': '登录按钮','locator_type': 'xpath', 'locator_value': '//input[@name="keepLogin[]"]', 'timeout': 5}
@@ -48,8 +40,10 @@ class BasePage(object):
             locator_type = By.CLASS_NAME
         elif locator_type_name == 'xpath':
             locator_type = By.XPATH
-        element = WebDriverWait(self.driver, locator_time) \
-            .until(lambda x: x.find_element(locator_type, locator_value_info))
+        element = WebDriverWait(self.driver,locator_time)\
+            .until(lambda x:x.find_element(locator_type,locator_value_info))
+        # element = WebDriverWait(self.driver,locator_time)\
+        #     .until(EC.presence_of_element_located(locator_type,locator_value_info))
         logger.info('[%s]元素识别成功' % element_info['element_name'])
         return element
 
@@ -57,18 +51,19 @@ class BasePage(object):
         element = self.find_element(element_info)
         element.click()
         logger.info('[%s]元素进行点击操作'%element_info['element_name'])
+
     def input(self,element_info,content):
         element = self.find_element(element_info)
         element.send_keys(content)
         logger.info('[%s]元素输入内容：%s'%(element_info['element_name'],content))
-    def getattribute(self,element_info,cont):
-        element = self.find_element(element_info)
-        element.get_attribute(cont)
-        logger.info('[%s]获取元素%s的值'%(element_info['element_name'],cont))
-    # 获取文本内容报错？
-    def text(self,element_info):
-        element = self.find_element(element_info)
-        cont = element.text
-        logger.info('[%s]获取文本值:%s'%element_info['element_name'],cont)
 
+#获取后的数值怎么取值，需研究
+    def get_attribute(self, element_info, content):
+        element = self.find_element(element_info)
+        element.getattribute(content)
+        logger.info('[%s]元素查找%s的值' % (element_info['element_name'], content))
 
+    def text(self, element_info,content):
+        element = self.find_element(element_info)
+        element.text
+        logger.info('[%s]元素获取文本值:%s' % (element_info['element_name'], content))
