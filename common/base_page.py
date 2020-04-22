@@ -9,7 +9,7 @@ from common.log_utils import logger
 
 class BasePage(object):
     def __init__(self,driver):
-        self.driver = webdriver.Firefox()#driver
+        self.driver = driver
 
      #浏览器操作封装 -->二次封装
     def open_url(self,url):
