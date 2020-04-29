@@ -25,8 +25,7 @@ class LoginPage(BasePage):
         #                           'locator_type': 'xpath',
         #                           'locator_value':'//input[@name="keepLogin[]"]',
         #                           'timeout': 2}
-        # elemenets = ElementDataUtils('项目').get_element_info('login_page')
-        elemenets = read_yaml('login_page')
+        elemenets = ElementDataUtils('项目').get_element_info('login_page')
         self.username_inputbox = elemenets['username_inputbox']
         self.password_inputbox = elemenets['password_inputbox']
         self.login_button = elemenets['login_button']
