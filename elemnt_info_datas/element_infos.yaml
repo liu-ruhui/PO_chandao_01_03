@@ -3,19 +3,19 @@ login_page :
     element_name: '用户名输入框'
     locator_type: 'xpath'
     locator_value: '//input[@name="account"]'
-    timeout: '3'
+    timeout: 3
 
   password_inputbox:
     element_name: '密码输入框'
     locator_type: 'xpath'
     locator_value: '//input[@name="password"]'
-    timeout: '3'
+    timeout: 3
 
   login_button:
     element_name: '登录按钮'
     locator_type: 'xpath'
     locator_value: '//button[@id="submit"]'
-    timeout: '3'
+    timeout: 3
 
   keeplogin_checkbox:
     element_name: '复选框：记住密码'
