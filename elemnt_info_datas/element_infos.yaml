@@ -3,19 +3,31 @@ login_page :
     element_name: '用户名输入框'
     locator_type: 'xpath'
     locator_value: '//input[@name="account"]'
+<<<<<<< HEAD
     timeout: 3
+=======
+    timeout: '3'
+>>>>>>> origin/master
 
   password_inputbox:
     element_name: '密码输入框'
     locator_type: 'xpath'
     locator_value: '//input[@name="password"]'
+<<<<<<< HEAD
     timeout: 3
+=======
+    timeout: '3'
+>>>>>>> origin/master
 
   login_button:
     element_name: '登录按钮'
     locator_type: 'xpath'
     locator_value: '//button[@id="submit"]'
+<<<<<<< HEAD
     timeout: 3
+=======
+    timeout: '3'
+>>>>>>> origin/master
 
   keeplogin_checkbox:
     element_name: '复选框：记住密码'
