@@ -1,4 +1,4 @@
-import os
+import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -15,15 +15,19 @@ class BasePage(object):
 
      #浏览器操作封装 -->二次封装
     def open_url(self,url):
-        self.driver.get(url)
-        logger.info('打开url地址 %s'%url)
+        self.driver.get( url )
+        logger.info('打开url地址 %s '% url )
     def set_maxwindow(self):
         self.driver.maximize_window()
         logger.info('设置浏览器最大化')
     def set_minwindow(self):
         self.driver.minimize_window()
         logger.info('设置浏览器最小化')
+    def time(self,seconeds=conf.time_out):
+        self.driver.implicitly_wait(seconeds)
+        logger.info('隐式等待%s秒'%seconeds)
     def refresh(self):
+        self.driver.refresh()
         logger.info('浏览器刷新操作')
     def get_title(self):
         value = self.driver.title
@@ -167,6 +171,7 @@ class BasePage(object):
 
 #进入frame框架
     def swich_to_frame(self,element_info):
+        self.wait(2)
         element = self.find_element(element_info)
         self.driver.switch_to.frame(element)
         logger.info('[%s]元素进入frame框架内'%self.element_name)
@@ -174,3 +179,7 @@ class BasePage(object):
     def default_frame(self):
         self.driver.switch_to.default_content()
         logger.info('退出框架')
+#固定等待
+    def wait(self,seconed=conf.time_out):
+        time.sleep(seconed)
+        logger.info('固定等待%s秒'%seconed)

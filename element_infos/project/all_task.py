@@ -1,8 +1,3 @@
-import os,time
-from selenium import webdriver
-from element_infos.project_page import ProjectPage
-from common.login_utils import login
-from element_infos.main_page import MainPage
 from common.base_page import BasePage
 
 class TaskPage(BasePage):
@@ -40,7 +35,7 @@ class TaskPage(BasePage):
         self.click(self.work_time)
     def click_write_task(self):
         self.click(self.write_task)
-    def click_write_task(self):
+    def click_little_task(self):
         self.click(self.little_task)
 
 

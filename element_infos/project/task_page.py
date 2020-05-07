@@ -1,11 +1,12 @@
 
-from element_infos.project_page import ProjectPage
-from common.login_utils import LoginPage
-from common.conf_utils import conf
-from common.browser import Browser
-from common.element_data_utils import ElementDataUtils
-from element_infos.main_page import MainPage
 from common.base_page import BasePage
+from common.browser import Browser
+from common.conf_utils import conf
+from common.element_data_utils import ElementDataUtils
+from common.login_utils import LoginPage
+from element_infos.main.main_page import MainPage
+from element_infos.project.project_page import ProjectPage
+
 
 class TaskPage(BasePage):
     def __init__(self,driver):
@@ -40,8 +41,8 @@ class TaskPage(BasePage):
 
 if __name__ =='__main__':
   driver = Browser().get_driver()
-  driver.get(conf.get_chandao_path)
   login_page = LoginPage(driver)
+  login_page.open_url(conf.get_chandao_path)
   task_page = TaskPage(driver)
   main_page = MainPage(driver)
   project_page = ProjectPage(driver)

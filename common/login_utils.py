@@ -1,8 +1,6 @@
-import os
-from element_infos.login_page import LoginPage
-from selenium import webdriver
 from common.conf_utils import conf
 from common.set_driver import set_driver
+from element_infos.login.login_page import LoginPage
 
 
 def login_success():

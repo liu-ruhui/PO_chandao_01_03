@@ -37,6 +37,11 @@ class ConfigUtils:
         driver_name_value = self.__conf.get('default', 'driver_name')
         return driver_name_value
 
+    @property
+    def time_out(self):
+        driver_name_value =float(self.__conf.get('default', 'time_out'))
+        return driver_name_value
+
 
 conf = ConfigUtils()
 if __name__=='__main__':

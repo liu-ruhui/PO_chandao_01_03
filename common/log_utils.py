@@ -20,6 +20,8 @@ class LogUtils:
     def error(self,message):
         self.logger.error(message)
 
+
+
 logger = LogUtils()
 if __name__ == "__main__":
     log_utiles = LogUtils()
