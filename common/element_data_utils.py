@@ -26,7 +26,7 @@ class ElementDataUtils:
 
 if __name__ =="__main__":
     try:
-        elemenets = ElementDataUtils('项目').get_element_info('login_page')
-        print(elemenets['keeplogin_checkbox'])
+        elemenets = ElementDataUtils('项目').get_element_info('project_page')
+        print(elemenets['story_menu'])
     except Exception as e:
         print('该页面无此参数')

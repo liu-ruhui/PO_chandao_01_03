@@ -3,6 +3,7 @@ from common.base_page import BasePage
 from common.set_driver import set_driver
 from common.element_yaml_utils import read_yaml
 from common.element_data_utils import ElementDataUtils
+from common.browser import Browser
 from common.conf_utils import conf
 
 
@@ -40,9 +41,13 @@ class LoginPage(BasePage):
 
 
 
+
 if __name__ =='__main__':
-    driver = set_driver('http://127.0.0.1:8080/zentao/user-login-L3plbnRhby8=.html')
+    driver = Browser().get_driver()
+    driver.get(conf.get_chandao_path)
+    # driver = set_driver('http://127.0.0.1:8080/zentao/user-login-L3plbnRhby8=.html')
     login_page = LoginPage(driver)
     login_page.input_username('admin')
     login_page.input_password('Lrh19960912')
     login_page.click_login()
+    BasePage(driver).scrolltop(2)

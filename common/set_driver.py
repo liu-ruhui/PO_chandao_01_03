@@ -2,7 +2,7 @@ import os
 from selenium import webdriver
 # from common.base_page import BasePage
 from common.conf_utils import conf
-
+'''在此代码中不再应用，已经由browser.py替代，此处作为一个记录'''
 
 
 def set_driver(url):

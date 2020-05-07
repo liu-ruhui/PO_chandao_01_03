@@ -1,7 +1,7 @@
 from element_infos.login_page import LoginPage
 from element_infos.main_page import MainPage
 from common.base_page import BasePage
-from common.set_driver import set_driver
+from common.browser import Browser
 from common.conf_utils import conf
 from common.element_data_utils import ElementDataUtils
 
@@ -26,7 +26,8 @@ class ProjectPage(BasePage):
 
 
 if __name__ =='__main__':
-    driver = set_driver(conf.get_chandao_path)
+    driver = Browser().get_driver()
+    driver.get(conf.get_chandao_path)
     project_page = ProjectPage(driver)
     main_page = MainPage(driver)
     login_page = LoginPage(driver)

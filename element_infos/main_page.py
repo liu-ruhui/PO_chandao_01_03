@@ -2,7 +2,7 @@ from element_infos.login_page import LoginPage
 from common.element_data_utils import ElementDataUtils
 from common.base_page import BasePage
 from common.conf_utils import conf
-from common.set_driver import set_driver
+from common.browser import Browser
 
 class MainPage(BasePage):
     def __init__(self,driver):
@@ -31,7 +31,8 @@ class MainPage(BasePage):
 
 
 if __name__ =="__main__":
-    driver = set_driver(conf.get_chandao_path)
+    driver = Browser().get_driver()
+    driver.get(conf.get_chandao_path)
     login_page = LoginPage(driver)
     main_page = MainPage(driver)
     login_page.input_username('admin')
