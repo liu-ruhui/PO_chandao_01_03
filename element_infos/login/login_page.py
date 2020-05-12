@@ -39,6 +39,8 @@ class LoginPage(BasePage):
     def click_login(self):
        self.click(self.login_button)
 
+    def get_login_fail_alter_content(self):
+        return self.switch_to_alter()
 
 
 if __name__ =='__main__':
@@ -49,4 +51,8 @@ if __name__ =='__main__':
     login_page.input_username('admin')
     login_page.input_password('Lrh19960912')
     login_page.click_login()
+
+   #测试base_page中的方法
+    # login_page.switch_to_alter()
     # BasePage(driver).scrolltop(2)
+    # login_page.screenshot_as_file()

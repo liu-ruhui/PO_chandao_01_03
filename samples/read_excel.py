@@ -4,7 +4,7 @@ from common.conf_utils import conf
 
 
 current_path = os.path.dirname(__name__)
-excel_path = os.path.join(current_path,'..//elemnt_info_datas/element_infos.xlsx')
+excel_path = os.path.join(current_path,'..//element_info_datas/element_infos.xlsx')
 
 workbook = xlrd.open_workbook(excel_path)
 sheet = workbook.sheet_by_name('项目')

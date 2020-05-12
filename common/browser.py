@@ -30,7 +30,7 @@ class Browser(object):
         return driver
 
     def __get_firefox_driver(self):
-        gecko_driver = os.path.join(self.__driver_path,'geckodriver')
+        gecko_driver = os.path.join(self.__driver_path,'geckodriver.exe')
         driver = webdriver.Firefox(executable_path=gecko_driver)
         return driver
 

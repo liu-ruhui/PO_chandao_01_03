@@ -2,7 +2,7 @@ import os
 import yaml
 
 current_path = os.path.dirname(__file__)
-yaml_path = os.path.join(current_path, '..//elemnt_info_datas/element_infos.yaml')
+yaml_path = os.path.join(current_path, '..//element_info_datas/element_infos.yaml')
 
 
 

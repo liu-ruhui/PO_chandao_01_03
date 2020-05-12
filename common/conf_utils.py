@@ -42,6 +42,11 @@ class ConfigUtils:
         driver_name_value =float(self.__conf.get('default', 'time_out'))
         return driver_name_value
 
+    @property
+    def screenshot_path(self):
+        screenshot_path_value = self.__conf.get('default', 'screen_shot_path')
+        return screenshot_path_value
+
 
 conf = ConfigUtils()
 if __name__=='__main__':

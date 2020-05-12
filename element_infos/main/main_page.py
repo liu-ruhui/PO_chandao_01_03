@@ -28,7 +28,7 @@ class MainPage(BasePage):
         self.click(self.project_menu)
     def get_usename(self):  #获取用户名
       value = self.text(self.username_showspan)
-      print(value)
+      return value
 
 
 if __name__ =="__main__":

@@ -2,8 +2,8 @@ import os
 import xlrd
 from common.conf_utils import conf
 
-current_path = os.path.dirname(__name__)
-excel_path = os.path.join(current_path,'..//elemnt_info_datas/element_infos.xlsx')
+current_path = os.path.dirname(__file__)
+excel_path = os.path.join(current_path,'..','element_info_datas/element_infos.xlsx')
 class ElementDataUtils:
     def __init__(self,moudle_name,element_path = excel_path):
         self.element_path = element_path
