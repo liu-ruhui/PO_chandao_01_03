@@ -3,6 +3,7 @@ from common.browser import Browser
 from common.conf_utils import conf
 from common.element_data_utils import ElementDataUtils
 from element_infos.login.login_page import LoginPage
+'''实现退出功能'''
 
 
 class MainPage(BasePage):
@@ -14,7 +15,8 @@ class MainPage(BasePage):
        self.product_menu = element['product_menu']
        self.project_menu = element['project_menu']
        self.username_showspan = element['username_showspan']
-       # print(self.companyname_showbox)
+       self.quit_button = element['quit_button']
+       # print(self.quit_button)
 
     def get_companyname(self,text):  #获取公司名称
         value = self.get_element_attribute(self.companyname_showbox,text)
@@ -29,6 +31,10 @@ class MainPage(BasePage):
     def get_usename(self):  #获取用户名
       value = self.text(self.username_showspan)
       return value
+    def click_username(self):
+        self.click(self.username_showspan)
+    def click_quit_button(self):
+        self.click(self.quit_button)
 
 
 if __name__ =="__main__":

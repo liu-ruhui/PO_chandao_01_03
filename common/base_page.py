@@ -33,7 +33,7 @@ class BasePage(object):
         logger.info('浏览器刷新操作')
     def get_title(self):
         value = self.driver.title
-        logger.info('获取网页标题，标题是%s'%value)
+        logger.info('获取网页标题，标题是%s:'%value)
         return value
     def close(self):
         value = self.driver.close()

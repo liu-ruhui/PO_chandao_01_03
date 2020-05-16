@@ -3,21 +3,24 @@ from actions.login_action import LoginAction
 from common.base_page import BasePage
 from common.browser import Browser
 from common.conf_utils import conf
-from common.selenium_base_case import SeleniumBaseCase
 
-class LoginTest(SeleniumBaseCase):  #LoginTest继承SeleniumBaseCase继承unittest.TestCase
+class LoginTest(unittest.TestCase):
+    def setUp(self)->None:
+        self.base_page = BasePage(Browser().get_driver())
+        self.base_page.set_maxwindow()
+        self.base_page.implicitly_wait()
+        self.base_page.open_url(conf.get_chandao_path)
 
-#调用父类的setup后再个性化调用子类的Setup（单个测试模块需要加载一些新的代码时才写）
-    def setUp(self):
-      super().setUp()  #不加会将原有的方法覆盖
-      print('hello')
+    def tearDown(self):
+        self.base_page.close()
 
-#登陆成功的用例
     def test_login_success(self):
         login_action = LoginAction(self.base_page.driver)
         main_page = login_action.login_success('admin','Lrh19960912')
+        a = main_page.get_usename()
+        print(a)
         self.assertEqual(main_page.get_usename(),'admin','test_login_success用例执行失败')
-#登陆失败，密码错误的用例
+
     def test_login_fail(self):
         login_action = LoginAction(self.base_page.driver)
         actual_result = login_action.login_fail('admin','123456')
